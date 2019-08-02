@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Models;
+using Tracker.Models;
 using System.Collections.Generic;
 
-namespace ToDoList.Controllers
+namespace Tracker.Controllers
 {
     public class ItemsController : Controller
     {

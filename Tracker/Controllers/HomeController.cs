@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Models;
+using Tracker.Models;
 
-namespace ToDoList.Controllers
+namespace Tracker.Controllers
 {
     public class HomeController : Controller
     {

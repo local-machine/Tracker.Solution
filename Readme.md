@@ -1,109 +1,52 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ToDoList.Models;
-using System;
-using System.Collections.Generic;
+# Project
 
-namespace ToDoList.Tests
-{
-    [TestClass]
-    public class ItemTest : IDisposable
-    {
-        public void Dispose()
-        {
-            Item.ClearAll();
-        }
-        [TestMethod]
-        public void ItemConstructor_CreatesInstanceOfItem_Item()
-        {
-            Item newItem = new Item("test");
-            Assert.AreEqual(typeof(Item), newItem.GetType());
-        }
+### By Jessica Munoz
 
-        [TestMethod]
-        public void GetDescription_ReturnsDescription_String()
-        {
-            //Arrange
-            string description = "Walk the dog.";
-            Item newItem = new Item(description);
+#### _A web application to track vendors and their orders. - August 2nd, 2019_
 
-            //Act
-            string result = newItem.Description;
+---
 
-            //Assert
-            Assert.AreEqual(description, result);
-        }
-        [TestMethod]
-        public void SetDescription_SetDescription_String()
-        {
-            //Arrange
-            string description = "Walk the dog.";
-            Item newItem = new Item(description);
+## Description
 
-            //Act
-            string updatedDescription = "Do the dishes";
-            newItem.Description = updatedDescription;
-            string result = newItem.Description;
+Simple web application used to track Pierre's Bakery vendors and their corresponding orders.
 
-            //Assert
-            Assert.AreEqual(updatedDescription, result);
-        }
-        [TestMethod]
-        public void GetAll_ReturnsEmptyList_ItemList()
-        {
-            // Arrange
-            List<Item> newList = new List<Item> { };
+## Technologies Used
 
-            //Act
-            List<Item> result = Item.GetAll();
+- C#
+- .NET
+- MSTesting
 
-            //Assert
-            CollectionAssert.AreEqual(newList, result);
-        }
-        [TestMethod]
-        public void GetAll_ReturnsItems_ItemList()
-        {
-            //Arrange
-            string description01 = "Walk the dog";
-            string description02 = "Wash the dishes";
-            Item newItem1 = new Item(description01);
-            Item newItem2 = new Item(description02);
-            List<Item> newList = new List<Item> { newItem1, newItem2 };
+## Installation
 
-            //Act
-            List<Item> result = Item.GetAll();
+* Install .NET locally if it isn't already installed
+* Clone this repository locally
+* Open the terminal and navigate to the project folder Tracker.Solution/Tracker
+    - Enter the command: dotnet restore
+    - Enter the command: dotnet build
+    - Enter the command: dotnet run
 
-            //Assert
-            CollectionAssert.AreEqual(newList, result);
-        }
 
-        [TestMethod]
-        public void GetId_ItemsInstantiateWithAnIdAndGetterReturns_Int()
-        {
-            // Arrange
-            string description = "Walk the dog.";
-            Item newItem = new Item(description);
+## Specs
 
-            // Act
-            int result = newItem.Id;
+| Behaviors                                                                                                                          |                          Input                          | Output |
+| ---------------------------------------------------------------------------------------------------------------------------------- | :-----------------------------------------------------: | :----: |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
 
-            // Assert
-            Assert.AreEqual(1, result);
-        }
 
-        [TestMethod]
-        public void Find_ReturnsCorrectItem_Item()
-        {
-            // Arrange
-            string description01 = "Walk the dog";
-            string description02 = "Wash the dishes";
-            Item newItem1 = new Item(description01);
-            Item newItem2 = new Item(description02);
+## Known Bugs
 
-            // Act
-            Item result = Item.Find(2);
+- No known bugs at this time.
 
-            // Assert
-            Assert.AreEqual(newItem2, result);
-        }
-    }
-}
+## Support and contact details
+
+_Please contact Jessica Munoz with questions and comments._
+
+### License
+
+_GNU GPLv3_
+
+Copyright (c) 2019 **_Jessica Munoz_**

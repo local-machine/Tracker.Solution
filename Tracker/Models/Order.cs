@@ -1,33 +1,12 @@
 using System.Collections.Generic;
 
-namespace ToDoList.Models
+namespace Tracker.Models
 {
-    public class Item
-    {
-        public string Description { get; set; }
-        public int Id { get; }
-        private static List<Item> _instances = new List<Item> {};
-
-        public Item (string description)
-        {
-            Description = description;
-            _instances.Add(this);
-            Id = _instances.Count;
-        }
-
-        public static List<Item> GetAll()
-        {
-            return _instances;
-        }
-
-        public static void ClearAll()
-        {
-            _instances.Clear();
-        }
-
-        public static Item Find(int searchId)
-        {
-            return _instances[searchId - 1];
-        }
-    }
+  public class Category
+  {
+    private static List<Category> _instances = new List<Category> {};
+    public string Name { get; set; }
+    public int Id { get; }
+    public List<Item> Items { get; set; }
+  }
 }
