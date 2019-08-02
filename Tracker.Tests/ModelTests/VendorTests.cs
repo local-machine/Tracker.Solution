@@ -6,17 +6,17 @@ using System.Collections.Generic;
 namespace Tracker.Tests
 {
     [TestClass]
-    public class ItemTest : IDisposable
+    public class VendorTest : IDisposable
     {
         public void Dispose()
         {
-            Item.ClearAll();
+            Vendor.ClearAll();
         }
         [TestMethod]
-        public void ItemConstructor_CreatesInstanceOfItem_Item()
+        public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
         {
-            Item newItem = new Item("test");
-            Assert.AreEqual(typeof(Item), newItem.GetType());
+            Vendor newVendor = new Vendor("test");
+            Assert.AreEqual(typeof(Vendor), newVendor.GetType());
         }
 
         [TestMethod]
@@ -24,10 +24,10 @@ namespace Tracker.Tests
         {
             //Arrange
             string description = "Walk the dog.";
-            Item newItem = new Item(description);
+            Vendor newVendor = new Vendor(description);
 
             //Act
-            string result = newItem.Description;
+            string result = newVendor.Description;
 
             //Assert
             Assert.AreEqual(description, result);
@@ -37,73 +37,73 @@ namespace Tracker.Tests
         {
             //Arrange
             string description = "Walk the dog.";
-            Item newItem = new Item(description);
+            Vendor newVendor = new Vendor(description);
 
             //Act
             string updatedDescription = "Do the dishes";
-            newItem.Description = updatedDescription;
-            string result = newItem.Description;
+            newVendor.Description = updatedDescription;
+            string result = newVendor.Description;
 
             //Assert
             Assert.AreEqual(updatedDescription, result);
         }
         [TestMethod]
-        public void GetAll_ReturnsEmptyList_ItemList()
+        public void GetAll_ReturnsEmptyList_VendorList()
         {
             // Arrange
-            List<Item> newList = new List<Item> { };
+            List<Vendor> newList = new List<Vendor> { };
 
             //Act
-            List<Item> result = Item.GetAll();
+            List<Vendor> result = Vendor.GetAll();
 
             //Assert
             CollectionAssert.AreEqual(newList, result);
         }
         [TestMethod]
-        public void GetAll_ReturnsItems_ItemList()
+        public void GetAll_ReturnsVendors_VendorList()
         {
             //Arrange
             string description01 = "Walk the dog";
             string description02 = "Wash the dishes";
-            Item newItem1 = new Item(description01);
-            Item newItem2 = new Item(description02);
-            List<Item> newList = new List<Item> { newItem1, newItem2 };
+            Vendor newVendor1 = new Vendor(description01);
+            Vendor newVendor2 = new Vendor(description02);
+            List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
 
             //Act
-            List<Item> result = Item.GetAll();
+            List<Vendor> result = Vendor.GetAll();
 
             //Assert
             CollectionAssert.AreEqual(newList, result);
         }
 
         [TestMethod]
-        public void GetId_ItemsInstantiateWithAnIdAndGetterReturns_Int()
+        public void GetId_VendorsInstantiateWithAnIdAndGetterReturns_Int()
         {
             // Arrange
             string description = "Walk the dog.";
-            Item newItem = new Item(description);
+            Vendor newVendor = new Vendor(description);
 
             // Act
-            int result = newItem.Id;
+            int result = newVendor.Id;
 
             // Assert
             Assert.AreEqual(1, result);
         }
 
         [TestMethod]
-        public void Find_ReturnsCorrectItem_Item()
+        public void Find_ReturnsCorrectVendor_Vendor()
         {
             // Arrange
             string description01 = "Walk the dog";
             string description02 = "Wash the dishes";
-            Item newItem1 = new Item(description01);
-            Item newItem2 = new Item(description02);
+            Vendor newVendor1 = new Vendor(description01);
+            Vendor newVendor2 = new Vendor(description02);
 
             // Act
-            Item result = Item.Find(2);
+            Vendor result = Vendor.Find(2);
 
             // Assert
-            Assert.AreEqual(newItem2, result);
+            Assert.AreEqual(newVendor2, result);
         }
     }
 }

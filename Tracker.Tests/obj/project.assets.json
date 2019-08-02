@@ -1662,6 +1662,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "Tracker/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "compile": {
+          "bin/placeholder/Tracker.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Tracker.dll": {}
+        }
       }
     }
   },
@@ -5813,6 +5823,11 @@
         "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "Tracker/1.0.0": {
+      "type": "project",
+      "path": "../Tracker/Tracker.csproj",
+      "msbuildProject": "../Tracker/Tracker.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5820,7 +5835,8 @@
       "MSTest.TestAdapter >= 1.2.0",
       "MSTest.TestFramework >= 1.2.0",
       "Microsoft.NET.Test.Sdk >= 15.0.0",
-      "Microsoft.NETCore.App >= 2.2.0"
+      "Microsoft.NETCore.App >= 2.2.0",
+      "Tracker >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5850,7 +5866,11 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/justimaybe/Desktop/Tracker.Solution/Tracker/Tracker.csproj": {
+              "projectPath": "/Users/justimaybe/Desktop/Tracker.Solution/Tracker/Tracker.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -4,41 +4,41 @@ using System.Collections.Generic;
 
 namespace Tracker.Controllers
 {
-    public class ItemsController : Controller
+    public class VendorsController : Controller
     {
 
-        [HttpGet("/items")]
+        [HttpGet("/vendors")]
         public ActionResult Index()
         {
-            List<Item> allItems = Item.GetAll();
-            return View(allItems);
+            List<Vendor> allVendors = Vendor.GetAll();
+            return View(allVendors);
         }
 
-        [HttpGet("/items/new")]
+        [HttpGet("/vendors/new")]
         public ActionResult New()
         {
             return View();
         }
 
-        [HttpPost("/items")]
+        [HttpPost("/vendors")]
         public ActionResult Create(string description)
         {
-            Item myItem = new Item(description);
+            Vendor myVendor = new Vendor(description);
             return RedirectToAction("Index");
         }
 
-        [HttpPost("/items/delete")]
+        [HttpPost("/vendors/delete")]
         public ActionResult DeleteAll()
         {
-            Item.ClearAll();
+            Vendor.ClearAll();
             return View();
         }
 
-        [HttpGet("/items/{id}")]
+        [HttpGet("/vendors/{id}")]
         public ActionResult Show(int id)
         {
-            Item foundItem = Item.Find(id);
-            return View(foundItem);
+            Vendor foundVendor = Vendor.Find(id);
+            return View(foundVendor);
         }
 
     }
