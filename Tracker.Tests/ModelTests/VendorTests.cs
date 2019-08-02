@@ -1,109 +1,95 @@
-// using Microsoft.VisualStudio.TestTools.UnitTesting;
-// using Tracker.Models;
-// using System;
-// using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Tracker.Models;
+using System.Collections.Generic;
+using System;
 
-// namespace Tracker.Tests
-// {
-//     [TestClass]
-//     public class ItemTest : IDisposable
-//     {
-//         public void Dispose()
-//         {
-//             Item.ClearAll();
-//         }
-//         [TestMethod]
-//         public void ItemConstructor_CreatesInstanceOfItem_Item()
-//         {
-//             Item newItem = new Item("test");
-//             Assert.AreEqual(typeof(Item), newItem.GetType());
-//         }
+namespace Tracker.Tests
+{
+  [TestClass]
+  public class VendorTest : IDisposable
+  {
+    public void Dispose()
+    {
+      Vendor.ClearAll();
+    }
 
-//         [TestMethod]
-//         public void GetDescription_ReturnsDescription_String()
-//         {
-//             //Arrange
-//             string description = "Walk the dog.";
-//             Item newItem = new Item(description);
+    [TestMethod]
+    public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
+    {
+      Vendor newVendor = new Vendor("Victory Coffee", "Coffee shop in SoDo");
+      Assert.AreEqual(typeof(Vendor), newVendor.GetType());
+    }
 
-//             //Act
-//             string result = newItem.Description;
+    [TestMethod]
+    public void GetName_ReturnsName_String()
+    {
+      //Arrange
+      string vendorName = "Victory Coffee";
+      string vendorDescription = "Coffee shop in SoDo";
+      Vendor newVendor = new Vendor(vendorName, vendorDescription);
 
-//             //Assert
-//             Assert.AreEqual(description, result);
-//         }
-//         [TestMethod]
-//         public void SetDescription_SetDescription_String()
-//         {
-//             //Arrange
-//             string description = "Walk the dog.";
-//             Item newItem = new Item(description);
+      //Act
+      string result = newVendor.Name;
 
-//             //Act
-//             string updatedDescription = "Do the dishes";
-//             newItem.Description = updatedDescription;
-//             string result = newItem.Description;
+      //Assert
+      Assert.AreEqual(vendorName, result);
+    }
 
-//             //Assert
-//             Assert.AreEqual(updatedDescription, result);
-//         }
-//         [TestMethod]
-//         public void GetAll_ReturnsEmptyList_ItemList()
-//         {
-//             // Arrange
-//             List<Item> newList = new List<Item> { };
+    [TestMethod]
+    public void GetId_ReturnsVendorId_Int()
+    {
+      //Arrange
+      string vendorName = "Victory Coffee";
+      string vendorDescription = "Coffee shop in SoDo";
+      Vendor newVendor = new Vendor(vendorName, vendorDescription);
 
-//             //Act
-//             List<Item> result = Item.GetAll();
+      //Act
+      int result = newVendor.Id;
 
-//             //Assert
-//             CollectionAssert.AreEqual(newList, result);
-//         }
-//         [TestMethod]
-//         public void GetAll_ReturnsItems_ItemList()
-//         {
-//             //Arrange
-//             string description01 = "Walk the dog";
-//             string description02 = "Wash the dishes";
-//             Item newItem1 = new Item(description01);
-//             Item newItem2 = new Item(description02);
-//             List<Item> newList = new List<Item> { newItem1, newItem2 };
+      //Assert
+      Assert.AreEqual(1, result);
+    }
 
-//             //Act
-//             List<Item> result = Item.GetAll();
+    [TestMethod]
+    public void GetAll_ReturnsAllVendorObjects_VendorList()
+    {
+      //Arrange
+      string vendorName01 = "Victory Coffee";
+      string vendorDescription01 = "Coffee shop in SoDo";
 
-//             //Assert
-//             CollectionAssert.AreEqual(newList, result);
-//         }
+      string vendorName02 = "Herkimer Coffee";
+      string vendorDescription02 = "Coffee shop in Queen Anne";
 
-//         [TestMethod]
-//         public void GetId_ItemsInstantiateWithAnIdAndGetterReturns_Int()
-//         {
-//             // Arrange
-//             string description = "Walk the dog.";
-//             Item newItem = new Item(description);
+      Vendor newVendor01 = new Vendor(vendorName01, vendorDescription01);
+      Vendor newVendor02 = new Vendor(vendorName02, vendorDescription02);
+      List<Vendor> newList = new List<Vendor> { newVendor01, newVendor02 };
 
-//             // Act
-//             int result = newItem.Id;
+      //Act
+      List<Vendor> result = Vendor.GetAll();
 
-//             // Assert
-//             Assert.AreEqual(1, result);
-//         }
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
 
-//         [TestMethod]
-//         public void Find_ReturnsCorrectItem_Item()
-//         {
-//             // Arrange
-//             string description01 = "Walk the dog";
-//             string description02 = "Wash the dishes";
-//             Item newItem1 = new Item(description01);
-//             Item newItem2 = new Item(description02);
+    [TestMethod]
+    public void Find_ReturnsCorrectVendor_Vendor()
+    {
+      //Arrange
+      string vendorName01 = "Victory Coffee";
+      string vendorDescription01 = "Coffee shop in SoDo";
 
-//             // Act
-//             Item result = Item.Find(2);
+      string vendorName02 = "Herkimer Coffee";
+      string vendorDescription02 = "Coffee shop in Queen Anne";
 
-//             // Assert
-//             Assert.AreEqual(newItem2, result);
-//         }
-//     }
-// }
+      Vendor newVendor01 = new Vendor(vendorName01, vendorDescription01);
+      Vendor newVendor02 = new Vendor(vendorName02, vendorDescription02);
+
+      //Act
+      Vendor result = Vendor.Find(2);
+
+      //Assert
+      Assert.AreEqual(newVendor02, result);
+    }
+
+  }
+}
