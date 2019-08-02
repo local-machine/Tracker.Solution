@@ -1,5 +1,6 @@
-<form action="/orders" method="post">
-<h3>Submit a new order by filling out the following</h3>
+<h3>Submit a new order for @Model.Name by filling out the following</h3>
+<form action="/vendors/@Model.Id/orders" method="post">
+    <input id="vendorId" name="vendorId" type="hidden" value="@Model.Id">
     <div>
         <label for="title">Order Title: </label>
         <input id="title" name="title" type="text">
@@ -16,5 +17,5 @@
         <label for="date">Date for Order Delivery: </label>
         <input id="date" name="date" type="text">
     </div>
-    <button type="submit">Submit</button>
+    <button type="submit">Add Order</button>
 </form>
