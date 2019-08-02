@@ -1,5 +1,20 @@
 <form action="/orders" method="post">
-    <label for="description">Add a new order</label>
-    <input id="description" name="description" type="text">
+<h3>Submit a new order by filling out the following</h3>
+    <div>
+        <label for="title">Order Title: </label>
+        <input id="title" name="title" type="text">
+    </div>
+    <div>
+        <label for="description">Order Description: </label>
+        <input id="description" name="description" type="text">
+    </div>
+    <div>
+        <label for="price">Order Price: </label>
+        <input id="price" name="price" type="text">
+    </div>
+    <div>
+        <label for="date">Date for Order Delivery: </label>
+        <input id="date" name="date" type="text">
+    </div>
     <button type="submit">Submit</button>
 </form>

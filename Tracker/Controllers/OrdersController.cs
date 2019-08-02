@@ -21,9 +21,9 @@ namespace Tracker.Controllers
         }
 
         [HttpPost("/orders")]
-        public ActionResult Create(string description)
+        public ActionResult Create(string title, string description, int price, string date)
         {
-            Order myOrder = new Order(description);
+            Order myOrder = new Order(title, description, price, date);
             return RedirectToAction("Index");
         }
 
